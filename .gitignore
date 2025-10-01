@@ -1,0 +1,50 @@
+*.log
+.DS_Store
+.bundle
+.env.local
+.env.*.local
+.envrc
+.idea
+.vscode
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+config/master.key
+db/*.sqlite3
+node_modules
+public/assets
+
+app/assets/builds/*
+!app/assets/builds/.keep
+
+log/*
+!log/.keep
+
+tmp/*
+!tmp/.keep
+
+tmp/pids/*
+!tmp/pids/
+!tmp/pids/.keep
+
+# Terraform
+.terraform
+terraform/application/vendor
+terraform/domains/environment_domains/vendor
+terraform/domains/infrastructure/vendor
+terraform.tfstate*
+
+# Downloaded commands
+bin/konduit.sh
+
+# Maintenance page manifests
+maintenance_page/manifests/maintenance/deployment_maintenance.yml
+
+# For local machine
+.local/
