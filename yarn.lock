@@ -442,7 +442,7 @@ __metadata:
   dependencies:
     "@prettier/plugin-ruby": "npm:^4.0.4"
     esbuild: "npm:^0.25.10"
-    govuk-frontend: "npm:5.11.1"
+    govuk-frontend: "npm:5.12.0"
     prettier: "npm:^3.6.2"
     sass: "npm:^1.93.2"
   languageName: unknown
@@ -753,10 +753,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"govuk-frontend@npm:5.11.1":
-  version: 5.11.1
-  resolution: "govuk-frontend@npm:5.11.1"
-  checksum: 10c0/e194673fb4147b5a536b014db48baadcb69506023973bdc4a97964d0d377dc42aa6ce1e4671ee73efbf38aa448c5d3e9d9504fbfd6ff9483e301071c3767eb94
+"govuk-frontend@npm:5.12.0":
+  version: 5.12.0
+  resolution: "govuk-frontend@npm:5.12.0"
+  checksum: 10c0/52091b9ebeebbff81f8bdc6762a89fe26a047835abf7a9c9e9cde5c71256969f68b9df8cba24b6d3b45d60eb4f19d96b31ae5cd33ee20e95b33fe10f141e62c1
   languageName: node
   linkType: hard
 
