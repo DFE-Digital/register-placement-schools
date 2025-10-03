@@ -42,14 +42,13 @@ group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-  gem "rubocop-rails-omakase", require: false
+  gem "rspec"
+  gem "rspec-rails"
 end
 
 group :development do
   gem "prettier_print", require: false
   gem "rladr"
-  gem "rubocop-govuk", require: false
   gem "solargraph", require: false
   gem "solargraph-rails", require: false
   gem "syntax_tree", require: false
@@ -72,11 +71,6 @@ end
 
 gem "govuk-components"
 gem "govuk_design_system_formbuilder"
-
-group :test, :development do
-  gem "rspec"
-  gem "rspec-rails"
-end
 
 group :development, :production do
   gem "amazing_print"
