@@ -1,3 +1,10 @@
+plugins:
+  - rubocop-rails
+  - rubocop-performance
+
+require:
+  - ./lib/rubocop/cop/environment/no_direct_env_access.rb
+
 inherit_gem:
   rubocop-govuk:
     - config/default.yml
@@ -10,6 +17,65 @@ inherit_mode:
   merge:
     - Exclude
 
+AllCops:
+  NewCops: enable
+
+Layout:
+  Enabled: true
+
+Style:
+  Enabled: true
+
+Rails:
+  Enabled: true
+
+Performance:
+  Enabled: true
+
+# --- Project-specific customisations ---
+
+Environment/NoDirectEnvAccess:
+  Enabled: true
+  Exclude:
+    - config/**/*
+    - spec/**/*
+    - lib/**/*
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: never
+  SafeAutoCorrect: true
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
 Style/NumericLiterals:
   Exclude:
     - db/schema.rb
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: consistent
+
+Style/SafeNavigationChainLength:
+  Max: 3
+
+Layout/IndentationWidth:
+  Enabled: true
+  Width: 2
+
+Layout/InitialIndentation:
+  Exclude:
+    - "app/views/**/*.erb"
+    - "app/components/**/*.erb"
+
+Layout/TrailingEmptyLines:
+  Exclude:
+    - "app/views/**/*.erb"
+    - "app/components/**/*.erb"
+
+Layout/LineLength:
+  Exclude:
+    - "spec/**/*.rb"
+    - "app/views/**/*.erb"
+    - "app/components/**/*.erb"
