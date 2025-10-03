@@ -467,7 +467,10 @@ DEPENDENCIES
   rladr
   rspec
   rspec-rails
+  rubocop
   rubocop-govuk
+  rubocop-performance
+  rubocop-rails
   rubocop-rails-omakase
   selenium-webdriver
   solargraph
