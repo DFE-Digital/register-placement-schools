@@ -80,6 +80,13 @@ GEM
     base64 (0.3.0)
     bcrypt_pbkdf (1.1.1)
     benchmark (0.4.1)
+    better_html (2.2.0)
+      actionview (>= 7.0)
+      activesupport (>= 7.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      parser (>= 2.4)
+      smart_properties
     bigdecimal (3.2.3)
     bindex (0.8.1)
     bootsnap (1.18.6)
@@ -110,6 +117,13 @@ GEM
     drb (2.2.3)
     ed25519 (1.4.0)
     erb (5.0.2)
+    erb_lint (0.9.0)
+      activesupport
+      better_html (>= 2.0.1)
+      parser (>= 2.7.1.4)
+      rainbow
+      rubocop (>= 1)
+      smart_properties
     erubi (1.13.1)
     et-orbi (1.4.0)
       tzinfo
@@ -331,10 +345,6 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.44.0, < 2.0)
-    rubocop-rails-omakase (1.1.0)
-      rubocop (>= 1.72)
-      rubocop-performance (>= 1.24)
-      rubocop-rails (>= 2.30)
     rubocop-rake (0.7.1)
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1)
@@ -354,6 +364,7 @@ GEM
       websocket (~> 1.0)
     semantic_logger (4.17.0)
       concurrent-ruby (~> 1.0)
+    smart_properties (1.17.0)
     solargraph (0.57.0)
       backport (~> 1.2)
       benchmark (~> 0.4)
@@ -454,6 +465,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  erb_lint
   govuk-components
   govuk_design_system_formbuilder
   jsbundling-rails
@@ -471,7 +483,6 @@ DEPENDENCIES
   rubocop-govuk
   rubocop-performance
   rubocop-rails
-  rubocop-rails-omakase
   selenium-webdriver
   solargraph
   solargraph-rails
