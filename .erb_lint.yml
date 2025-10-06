@@ -1,0 +1,16 @@
+---
+EnableDefaultLinters: true
+exclude:
+  - "vendor/**/*"
+  - "node_modules/**/*"
+  - "tmp/**/*"
+linters:
+  ErbSafety:
+    enabled: true
+  StrictLocals:
+    enabled: false
+  Rubocop:
+    enabled: true
+    rubocop_config:
+      inherit_from:
+        - .rubocop.yml
