@@ -47,6 +47,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "erb_lint"
   gem "prettier_print", require: false
   gem "rladr"
   gem "solargraph", require: false
