@@ -1,4 +1,4 @@
-if Rails.env.development? || Rails.env.production?
+unless Rails.env.test?
   Rails.application.configure do
     config.log_tags = [:request_id] # Prepend all log lines with the following tags
   end
