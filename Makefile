@@ -8,9 +8,13 @@ DOCKER_REPOSITORY=ghcr.io/dfe-digital/register-of-placement-schools
 help:
 	@grep -E '^[a-zA-Z\._\-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: development
-development: test-cluster
-	$(eval include global_config/development.sh)
+.PHONY: qa
+qa: test-cluster
+	$(eval include global_config/qa.sh)
+
+.PHONY: staging
+staging: test-cluster
+	$(eval include global_config/staging.sh)
 
 .PHONY: review
 review: test-cluster
@@ -111,10 +115,10 @@ domains-init: domains composed-variables set-azure-account
 		-backend-config=storage_account_name=${STORAGE_ACCOUNT_NAME} \
 		-backend-config=key=${ENVIRONMENT}.tfstate
 
-domains-plan: domains-init  ## Terraform plan for DNS environment domains. Usage: make development domains-plan
+domains-plan: domains-init  ## Terraform plan for DNS environment domains. Usage: make qa domains-plan
 	terraform -chdir=terraform/domains/environment_domains plan -var-file config/${CONFIG}.tfvars.json
 
-domains-apply: domains-init ## Terraform apply for DNS environment domains. Usage: make development domains-apply
+domains-apply: domains-init ## Terraform apply for DNS environment domains. Usage: make qa domains-apply
 	terraform -chdir=terraform/domains/environment_domains apply -var-file config/${CONFIG}.tfvars.json ${AUTO_APPROVE}
 
 test-cluster:

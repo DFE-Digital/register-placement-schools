@@ -6,11 +6,11 @@ on:
       environment:
         description: Environment to restore
         required: true
-        default: development
+        default: qa
         type: choice
         options:
-        - development
-        - test
+        - qa
+        - staging
         - production
       confirm-production:
         description: Must be set to true if restoring production

@@ -6,11 +6,11 @@ on:
       environment:
         description: Environment to backup
         required: true
-        default: development
+        default: qa
         type: choice
         options:
-        - development
-        - test
+        - qa
+        - staging
         - production
       backup-file:
         description: |
