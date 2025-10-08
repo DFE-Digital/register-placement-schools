@@ -1,8 +1,8 @@
 *.log
 .DS_Store
 .bundle
-.env
 .env.local
+.env.*.local
 .envrc
 .idea
 .vscode
@@ -32,3 +32,6 @@ tmp/*
 tmp/pids/*
 !tmp/pids/
 !tmp/pids/.keep
+
+# For local machine
+.local/
