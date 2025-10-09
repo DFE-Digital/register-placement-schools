@@ -49,7 +49,6 @@ terraform/application/vendor
 terraform/domains/environment_domains/vendor
 terraform/domains/infrastructure/vendor
 terraform.tfstate*
->>>>>>> 3a0dce0 (Draft for ROPS)
 
 # Downloaded commands
 bin/konduit.sh
