@@ -1,0 +1,2 @@
+RAILS_ENV: qa
+RACK_ENV: qa
