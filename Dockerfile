@@ -3,11 +3,7 @@
 # production: runs the actual app
 
 # Build builder image
-FROM ruby:3.2.2-alpine as builder
-
-# RUN apk -U upgrade && \
-#     apk add --update --no-cache gcc git libc6-compat libc-dev make nodejs \
-#     postgresql13-dev yarn
+FROM ruby:3.4.4-alpine3.22 AS builder
 
 WORKDIR /app
 
@@ -19,10 +15,11 @@ RUN apk add --update --no-cache tzdata && \
 # build-base: dependencies for bundle
 # yarn: node package manager
 # postgresql-dev: postgres driver and libraries
-RUN apk add --no-cache build-base yarn postgresql13-dev
+# yaml-dev: psych issues
+RUN apk add --no-cache build-base yarn postgresql16-dev yaml-dev
 
 # Install gems defined in Gemfile
-COPY .ruby-version Gemfile Gemfile.lock ./
+COPY Gemfile Gemfile.lock ./
 
 # Install gems and remove gem cache
 RUN bundler -v && \
@@ -31,6 +28,9 @@ RUN bundler -v && \
     bundle config set without 'development test' && \
     bundle install --retry=5 --jobs=4 && \
     rm -rf /usr/local/bundle/cache
+
+RUN yarn global add corepack
+RUN corepack enable && corepack prepare yarn@4.9.1 --activate
 
 # Install node packages defined in package.json
 COPY package.json yarn.lock ./
@@ -53,7 +53,7 @@ RUN rm -rf node_modules log/* tmp/* /tmp && \
     find /usr/local/bundle/gems -name "*.html" -delete
 
 # Build runtime image
-FROM ruby:3.2.2-alpine as production
+FROM ruby:3.4.4-alpine3.22 AS production
 
 # The application runs from /app
 WORKDIR /app
@@ -63,6 +63,9 @@ RUN apk add --update --no-cache tzdata && \
     cp /usr/share/zoneinfo/Europe/London /etc/localtime && \
     echo "Europe/London" > /etc/timezone
 
+# Create non-root user and group
+RUN addgroup -S appgroup -g 20001 && adduser -S appuser -G appgroup -u 10001
+
 # libpq: required to run postgres
 RUN apk add --no-cache libpq
 
@@ -70,5 +73,15 @@ RUN apk add --no-cache libpq
 COPY --from=builder /app /app
 COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
 
-CMD bundle exec rails db:migrate && \
-    bundle exec rails server -b 0.0.0.0
+# Change ownership only for directories that need write access
+RUN chown -R appuser:appgroup /app/tmp
+
+ARG COMMIT_SHA
+ENV COMMIT_SHA=$COMMIT_SHA
+
+# Use non-root user
+USER 10001
+
+ENTRYPOINT ["./bin/rails", "server"]
+
+CMD ["-b", "0.0.0.0"]
