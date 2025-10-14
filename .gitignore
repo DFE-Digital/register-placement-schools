@@ -6,6 +6,16 @@
 .envrc
 .idea
 .vscode
+=======
+=======
+*.log
+.DS_Store
+.bundle
+.env
+.env.local
+.envrc
+.idea
+.vscode
 
 .yarn/*
 !.yarn/cache
@@ -33,5 +43,35 @@ tmp/pids/*
 !tmp/pids/
 !tmp/pids/.keep
 
+# Terraform
+.terraform
+terraform/application/vendor
+terraform/domains/environment_domains/vendor
+terraform/domains/infrastructure/vendor
+terraform.tfstate*
+>>>>>>> 3a0dce0 (Draft for ROPS)
+
+# Downloaded commands
+bin/konduit.sh
+
+config/master.key
+db/*.sqlite3
+node_modules
+public/assets
+
+app/assets/builds/*
+!app/assets/builds/.keep
+
+log/*
+!log/.keep
+
+tmp/*
+!tmp/.keep
+
+tmp/pids/*
+!tmp/pids/
+!tmp/pids/.keep
+
 # For local machine
 .local/
+
