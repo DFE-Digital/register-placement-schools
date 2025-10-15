@@ -51,21 +51,24 @@ group :development, :test do
 end
 
 group :development do
-  gem "erb_lint"
-  gem "prettier_print", require: false
   gem "rladr"
   gem "solargraph", require: false
   gem "solargraph-rails", require: false
-  gem "syntax_tree", require: false
-  gem "syntax_tree-haml", require: false
-  gem "syntax_tree-rbs", require: false
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  gem "erb_lint"
+  gem "prettier_print", require: false
 
   gem "rubocop", require: false
   gem "rubocop-govuk", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
+
+  gem "syntax_tree", require: false
+  gem "syntax_tree-rbs", require: false
+
+  gem "database_consistency", require: false
 end
 
 group :test do
