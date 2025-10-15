@@ -35,15 +35,19 @@ gem "thruster", require: false
 # Shim to load environment variables from .env into ENV
 gem "dotenv-rails"
 
+gem "rails_semantic_logger"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[mri windows], require: "debug/prelude"
+  gem "debug", platforms: %i[mri windows]
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
 
   gem "rspec"
   gem "rspec-rails"
+
+  gem "capybara-screenshot"
 end
 
 group :development do
@@ -75,5 +79,4 @@ gem "govuk_design_system_formbuilder"
 
 group :development, :production do
   gem "amazing_print"
-  gem "rails_semantic_logger"
 end
