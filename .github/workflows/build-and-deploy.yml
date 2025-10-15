@@ -63,22 +63,80 @@ jobs:
           snyk-token: ${{ secrets.SNYK_TOKEN }}
 
   test:
-    name: Run tests
-    if: ${{ github.event_name != 'workflow_dispatch' }}
+    name: Test Suite
     runs-on: ubuntu-latest
 
-    # This is a skeleton test job
-    # It will need to be updated to set the environment and run required tests
-    # The steps can be moved to a separate action if preferred
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/test
+      CI: true
 
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y \
+            build-essential \
+            git \
+            libpq-dev \
+            libyaml-dev \
+            node-gyp \
+            pkg-config \
+            python-is-python3 \
+            google-chrome-stable
 
-    # - name: Run tests
-    #   shell: bash
-    #   run: |
-    #     run some tests
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: ${{ env.TOOL_VERSIONS_FILE }}
+          cache: "yarn"
+
+      - name: Install Node.js dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Prepare database and assets
+        run: |
+          bin/rails db:prepare
+          bin/rails assets:precompile
+
+      - name: Run database consistency check
+        run: bin/db_consistency_check
+
+      - name: Run test suite
+        run: bundle exec rspec
+
+      - name: Upload test failure screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-failure-screenshots
+          path: tmp/screenshots/
+          if-no-files-found: ignore
+          retention-days: 7
+
 
   deploy-review-app:
     name: Deployment To Review
