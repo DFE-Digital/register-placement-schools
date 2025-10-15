@@ -32,7 +32,8 @@ on:
 
 env:
   TERRAFORM_BASE: terraform/application
-  HEALTHCHECK_CMD: "healthcheck/all"
+  HEALTHCHECK_CMD: "healthcheck"
+  TOOL_VERSIONS_FILE: .tool-versions
 
 jobs:
   build:
