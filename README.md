@@ -1,27 +1,6 @@
-# README
+# Register of placement schools
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-- Ruby version
-
-- System dependencies
-
-- Configuration
-
-- Database creation
-
-- Database initialization
-
-- How to run the test suite
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
-- ...
+Register of placement schools is a service for managing a single source of truth for all ITT placement schools.
 
 ## Setup
 
@@ -37,8 +16,7 @@ This project depends on:
 
 ### asdf
 
-This project uses `asdf`. Use the following to install the required tools:
-
+This project uses `asdf`, refer to [.tool-versions](.tool-versions) for the actual versions in use. Use the following to install the required tools:
 
 ```sh
 # The first time
@@ -61,14 +39,6 @@ will use:
 ```sh
 # Temporarily set the version of postgres to use to build the pg gem
 ASDF_POSTGRES_VERSION=17.2 bundle install
-```
-
-### Linting
-
-To run the linters:
-
-```bash
-bin/lint
 ```
 
 ### Intellisense
@@ -100,3 +70,19 @@ We use `rladr` to generate the boilerplate for new records:
 ```bash
 bin/bundle exec rladr new title
 ```
+
+### Running the app
+
+To run the application locally:
+
+1. Run `bin/setup --skip-server` to setup the app
+2. Run `bin/dev` to launch the app on <http://localhost:3000>
+
+### Linting
+
+To run the linters:
+
+```bash
+bin/lint
+```
+
