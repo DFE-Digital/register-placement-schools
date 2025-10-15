@@ -19,6 +19,7 @@ inherit_mode:
 
 AllCops:
   NewCops: enable
+  TargetRubyVersion: 3.4
 
 Layout:
   Enabled: true
@@ -59,6 +60,9 @@ Style/HashSyntax:
 
 Style/SafeNavigationChainLength:
   Max: 3
+
+Rails/CreateTableWithTimestamps:
+  Exclude:
 
 Layout/IndentationWidth:
   Enabled: true
