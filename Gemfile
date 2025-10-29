@@ -83,3 +83,5 @@ gem "govuk_design_system_formbuilder"
 group :development, :production do
   gem "amazing_print"
 end
+
+gem "pundit", "~> 2.5"
