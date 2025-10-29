@@ -40,6 +40,9 @@ gem "thruster", require: false
 # Shim to load environment variables from .env into ENV
 gem "dotenv-rails"
 
+# Logs all changes to the models.
+gem "audited"
+
 gem "rails_semantic_logger"
 
 # Soft deletes for ActiveRecord done right.
