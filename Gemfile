@@ -68,6 +68,9 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
+  # Add a comment summarising the current schema to each Active Record
+  gem "annotaterb"
+
   gem "erb_lint"
   gem "prettier_print", require: false
 
