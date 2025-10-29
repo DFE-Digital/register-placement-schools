@@ -29,6 +29,11 @@ gem "bootsnap", require: false
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
 
+# Govuk design system
+gem "govuk-components"
+gem "govuk_design_system_formbuilder"
+gem "govuk_markdown"
+
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
 
@@ -76,9 +81,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-gem "govuk-components"
-gem "govuk_design_system_formbuilder"
 
 group :development, :production do
   gem "amazing_print"
