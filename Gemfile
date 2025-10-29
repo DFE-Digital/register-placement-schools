@@ -76,6 +76,9 @@ group :development do
   # Add a comment summarising the current schema to each Active Record
   gem "annotaterb"
 
+  # Generates entity-relationship diagram based on the Active Records.
+  gem "rails-erd"
+
   gem "erb_lint"
   gem "prettier_print", require: false
 
