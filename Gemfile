@@ -93,10 +93,21 @@ group :development do
   gem "database_consistency", require: false
 end
 
+group :development, :review, :test, :qa do
+  # Rails integration for https://github.com/thoughtbot/factory_bot
+  gem "factory_bot_rails"
+
+  # A library for generating fake data such as names, addresses, and phone numbers.
+  gem "faker"
+end
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+
+  #  Simple one-liner tests for common Rails functionality
+  gem "shoulda-matchers"
 end
 
 group :development, :production do
