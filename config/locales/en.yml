@@ -2,6 +2,18 @@ en:
   service:
     name: Register of placement schools
     email: becomingateacher@digital.education.gov.uk
+  sign_in:
+    index:
+      heading: Sign in to Register of placement schools
+      dfe_sign_in:
+        body: Sign in using DfE Sign-in to access the service.
+        button: Sign in using DfE Sign-in
+      persona:
+        body: Sign in using a test user to access the service.
+        button: Sign in using a test user
+      otp:
+        body: Sign in using your email address and a one-time password.
+        button: Sign in using your email
   activerecord:
     errors:
       models:
