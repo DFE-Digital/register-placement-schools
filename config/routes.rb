@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     get "/500", to: "errors#internal_server_error"
   end
 
+  get "/sign-in" => "sign_in#index"
+
   case Env.sign_in_method("dfe-sign-in")
   when "dfe-sign-in"
     get("/auth/dfe/callback" => "sessions#callback")
