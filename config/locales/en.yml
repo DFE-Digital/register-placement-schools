@@ -2,3 +2,8 @@ en:
   service:
     name: Register of placement schools
     email: becomingateacher@digital.education.gov.uk
+  activemodel:
+    errors:
+      validators:
+        email:
+          invalid: Enter an email address in the correct format, like name@example.com
