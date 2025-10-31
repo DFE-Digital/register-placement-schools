@@ -1,0 +1,22 @@
+<% page_data(title: t(".heading")) %>
+
+<%= content_for(:breadcrumbs) do %>
+  <%= render GovukComponent::BackLinkComponent.new(
+        text: "Back",
+        href: root_path,
+      ) %>
+<% end %>
+<% case @sign_in_method %>
+<% when "otp" %>
+  <p class="govuk-body-m"><%= t(".otp.body") %></p>
+
+  <%= govuk_button_to(t(".otp.button"), "/otp_path", method: :get) %>
+<% when "dfe-sign-in" %>
+  <p class="govuk-body-m"><%= t(".dfe_sign_in.body") %></p>
+
+  <%= govuk_button_to(t(".dfe_sign_in.button"), "/auth/dfe") %>
+<% when "persona" %>
+  <p class="govuk-body-m"><%= t(".persona.body") %></p>
+
+  <%= govuk_button_to(t(".persona.button"), "/personas", method: :get) %>
+<% end %>
