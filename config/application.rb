@@ -46,5 +46,7 @@ module RegisterPlacementSchools
       ActiveSupport::TimeZone,
       ActiveSupport::Duration
     ]
+
+    config.active_record.primary_key = :uuid
   end
 end
