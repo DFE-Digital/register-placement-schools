@@ -37,5 +37,14 @@ module RegisterPlacementSchools
     config.assets.paths << Rails.root.join("node_modules/govuk-frontend/dist/govuk/assets")
 
     config.exceptions_app = routes
+
+    config.active_record.yaml_column_permitted_classes = [
+      Symbol,
+      Date,
+      Time,
+      ActiveSupport::TimeWithZone,
+      ActiveSupport::TimeZone,
+      ActiveSupport::Duration
+    ]
   end
 end
