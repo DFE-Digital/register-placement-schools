@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   get "/sign-in" => "sign_in#index"
+  get "/sign-in/user-not-found", to: "sign_in#new"
 
   case Env.sign_in_method("dfe-sign-in")
   when "dfe-sign-in"
