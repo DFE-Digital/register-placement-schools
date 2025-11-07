@@ -76,7 +76,7 @@ bin/bundle exec rladr new title
 To run the application locally:
 
 1. Run `bin/setup --skip-server` to setup the app
-2. Run `bin/dev` to launch the app on <http://localhost:3000>
+2. Run `bin/dev` to launch the app on <http://localhost:27225>
 
 ### Linting
 
