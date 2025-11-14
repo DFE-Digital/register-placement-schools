@@ -11,4 +11,14 @@ Rails.application.routes.draw do
     get "/429", to: "errors#too_many_requests"
     get "/500", to: "errors#internal_server_error"
   end
+
+  get "/sign-in" => "sign_in#index"
+  get "/sign-out" => "sign_out#index"
+  get "/sign-in/user-not-found", to: "sign_in#new"
+
+  case Env.sign_in_method("dfe-sign-in")
+  when "dfe-sign-in"
+    get("/auth/dfe/callback" => "sessions#callback")
+    get("/auth/dfe/sign-out" => "sessions#signout")
+  end
 end
