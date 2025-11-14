@@ -29,13 +29,29 @@ gem "bootsnap", require: false
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
 
+# Govuk design system
+gem "govuk-components"
+gem "govuk_design_system_formbuilder"
+gem "govuk_markdown"
+
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
 
 # Shim to load environment variables from .env into ENV
 gem "dotenv-rails"
 
+# Logs all changes to the models.
+gem "audited"
+
 gem "rails_semantic_logger"
+
+# Soft deletes for ActiveRecord done right.
+gem "discard", "~> 1.4"
+
+# DfE Sign-in
+gem "omniauth"
+gem "omniauth_openid_connect"
+gem "omniauth-rails_csrf_protection"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -57,6 +73,12 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
+  # Add a comment summarising the current schema to each Active Record
+  gem "annotaterb"
+
+  # Generates entity-relationship diagram based on the Active Records.
+  gem "rails-erd"
+
   gem "erb_lint"
   gem "prettier_print", require: false
 
@@ -71,15 +93,25 @@ group :development do
   gem "database_consistency", require: false
 end
 
+group :development, :review, :test, :qa do
+  # Rails integration for https://github.com/thoughtbot/factory_bot
+  gem "factory_bot_rails"
+
+  # A library for generating fake data such as names, addresses, and phone numbers.
+  gem "faker"
+end
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-end
 
-gem "govuk-components"
-gem "govuk_design_system_formbuilder"
+  #  Simple one-liner tests for common Rails functionality
+  gem "shoulda-matchers"
+end
 
 group :development, :production do
   gem "amazing_print"
 end
+
+gem "pundit", "~> 2.5"

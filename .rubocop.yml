@@ -63,6 +63,7 @@ Style/SafeNavigationChainLength:
 
 Rails/CreateTableWithTimestamps:
   Exclude:
+    - db/migrate/20251029093616_install_audited.rb
 
 Layout/IndentationWidth:
   Enabled: true
