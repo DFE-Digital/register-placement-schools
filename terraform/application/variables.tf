@@ -82,5 +82,58 @@ locals {
 
 variable "enable_logit" { default = true }
 
+variable "commands" {
+  description = "list of required docker image commands for k8s job to run"
+  type        = list(string)
+  default     = ["bundle"]
+}
 
+variable "arguments" {
+  description = "list of required docker image arguments for k8s job to run"
+  type        = list(string)
+  default     = ["exec", "rails", "db:prepare"]
+}
 
+variable "job_name" {
+  description = "name of the k8s job to run"
+  type        = string
+  default     = "migrations"
+}
+
+variable "web_memory_max" {
+  type    = string
+  default = "1Gi"
+}
+
+variable "web_replicas" {
+  type    = number
+  default = 1
+}
+
+variable "worker_memory_max" {
+  type    = string
+  default = "1Gi"
+}
+
+variable "worker_replicas" {
+  type = number
+  default = 1
+}
+
+variable "azure_maintenance_window" {
+  default = null
+}
+
+variable "postgres_flexible_server_sku" {
+  default = "B_Standard_B1ms"
+}
+
+variable "postgres_enable_high_availability" {
+  default = false
+}
+
+variable "postgres_extensions"{
+  default = ["PLPGSQL","PGCRYPTO","BTREE_GIST","CITEXT","PG_TRGM"]
+}
+
+variable "postgres_version" { default = 16 }
