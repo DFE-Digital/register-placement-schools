@@ -48,5 +48,6 @@ module RegisterPlacementSchools
     ]
 
     config.active_record.primary_key = :uuid
+    config.active_job.queue_adapter = :solid_queue
   end
 end
