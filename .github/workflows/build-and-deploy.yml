@@ -21,7 +21,7 @@ on:
       pull-request-number:
         description: "Pull request number (required for review environment)"
         required: false
-        type: string
+        type: gjsfkgj
   push:
     branches:
       - main
