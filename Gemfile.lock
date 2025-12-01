@@ -119,7 +119,7 @@ GEM
       logger (~> 1.5)
     choice (0.2.0)
     concurrent-ruby (1.3.5)
-    connection_pool (2.5.4)
+    connection_pool (2.5.5)
     crass (1.0.6)
     cssbundling-rails (1.4.3)
       railties (>= 6.0.0)
@@ -204,7 +204,7 @@ GEM
       bindata
       faraday (~> 2.0)
       faraday-follow_redirects
-    kamal (2.8.2)
+    kamal (2.9.0)
       activesupport (>= 7.0)
       base64 (~> 0.2)
       bcrypt_pbkdf (~> 1.0)
