@@ -280,7 +280,7 @@ GEM
       logger
       rack (>= 2.2.3)
       rack-protection
-    omniauth-rails_csrf_protection (1.0.2)
+    omniauth-rails_csrf_protection (2.0.1)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     omniauth_openid_connect (0.8.0)
@@ -537,11 +537,11 @@ GEM
       rbs
       syntax_tree (>= 2.0.1)
     thor (1.4.0)
-    thruster (0.1.16)
-    thruster (0.1.16-aarch64-linux)
-    thruster (0.1.16-arm64-darwin)
-    thruster (0.1.16-x86_64-darwin)
-    thruster (0.1.16-x86_64-linux)
+    thruster (0.1.17)
+    thruster (0.1.17-aarch64-linux)
+    thruster (0.1.17-arm64-darwin)
+    thruster (0.1.17-x86_64-darwin)
+    thruster (0.1.17-x86_64-linux)
     tilt (2.6.1)
     timeout (0.6.0)
     tsort (0.2.0)
