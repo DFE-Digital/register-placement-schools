@@ -1,6 +1,5 @@
 ruby      3.4.8
 nodejs    24.13.0
-yarn      4.9.1
 postgres  17.2
 terraform 1.9.8
 python    3.10.11
