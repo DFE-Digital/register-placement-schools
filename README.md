@@ -1,5 +1,7 @@
 # Register of placement schools
 
+test
+
 Register of placement schools is a service for managing a single source of truth for all ITT placement schools.
 
 ## Setup
