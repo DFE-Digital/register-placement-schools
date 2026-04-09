@@ -126,7 +126,7 @@ GEM
     crass (1.0.6)
     cssbundling-rails (1.4.3)
       railties (>= 6.0.0)
-    database_consistency (2.1.1)
+    database_consistency (3.0.2)
       activerecord (>= 3.2)
     date (3.5.1)
     debug (1.11.1)
