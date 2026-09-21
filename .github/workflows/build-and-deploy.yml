@@ -22,13 +22,6 @@ on:
         description: "Pull request number (required for review environment)"
         required: false
         type: string
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-    types: [opened, reopened, synchronize, labeled]
 
 env:
   TERRAFORM_BASE: terraform/application
