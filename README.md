@@ -2,6 +2,8 @@
 
 Register of placement schools is a service for managing a single source of truth for all ITT placement schools.
 
+Service decom started 21/09/2026
+
 ## Setup
 
 ### Prerequisites
